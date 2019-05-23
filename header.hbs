@@ -1,0 +1,41 @@
+<header class="container">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="/">
+      <img src="https://bigdataboutique.com/images/logo-notext-resized.png" width="160" height="29" class="d-inline-block align-top" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav w-100 justify-content-end">
+        <li class="nav-item mx-4" style="line-height: 34px;">
+          {{> search-widget}}
+        </li>
+        <li class="nav-item mx-4" style="line-height: 34px;">
+          <a href="/rss" target="_blank">
+            <i style="padding: 0rem 0.5rem" class="fas fa-rss"></i>
+          </a>
+        </li>
+	<li class="nav-item mx-4">
+	  <a class="nav-link" href="/about">About Us</a>
+	</li>
+        <li class="nav-item mx-4">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  {{#if (and posts.length (eq pageNum 1) (eq template "index"))}}
+    {{> fresh-post (head posts)}}
+  {{/if}}
+  {{#if (or (eq template "tagged") (eq template "series")) }}
+    <div class="blog-title my-5">
+      {{#if tagDescription}}
+        <h1><span>Blog /</span> {{tagDescription.title}}</h1>
+      {{else}}
+        <h1><span>Blog /</span> {{tag}}{{series}}</h1>
+      {{/if}}
+    </div>
+  {{/if}}
+</header>
