@@ -10,19 +10,15 @@
       <span class="read">{{this.reading_time}}</span>
       {{/if}}
       <div class="post-author__container d-flex justify-content-between">
-        <div class="post-author">
-          <img src="{{this.author.avatar}}" alt="">
-          <span class="author-name">{{this.author.name}}</span>
-        </div>
-        <div class="post-date">
+        <time class="post-date" datetime="{{this.published_at}}">
           {{this.published_at_str}}
-        </div>
+        </time>
       </div>
       <div class="post-excerpt">{{{this.excerpt}}}</div>
       <div class="post-badges">
         {{#if series}}
         <a href="{{series_url}}">
-          <div class="series-badge badge my-4">{{series}}</div>
+          <div class="series-badge badge my-4">Series: {{series}}</div>
         </a>
         {{/if}}        
         {{#each tags}}
