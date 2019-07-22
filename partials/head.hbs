@@ -20,6 +20,9 @@ blockquote {
 {{#if description}}
     <meta name="Description" content="{{description}}">
 {{/if}}
+{{#if metaKeywords}}
+    <meta name='keywords' content="{{metaKeywords}}">
+{{/if}}
 {{#if canonicalUrl}}
     <link rel="canonical" href="{{canonicalUrl}}" />
 {{/if}}
