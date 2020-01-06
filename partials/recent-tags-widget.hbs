@@ -1,0 +1,32 @@
+{{#if sidebarWidgetData.allTags}}
+<div class="topics">
+  <div class="title h5 text-uppercase">Topics <div class="arrow"></div></div>
+  <div class="topics-badges">
+    {{#each sidebarWidgetData.allTags}}
+      <a href="{{this.url}}" class="tag">
+        <div class="tags-badge badge">{{this.key}} <span>({{this.doc_count}})</span></div>
+      </a>
+    {{/each}}
+  </div>
+</div>
+{{/if}}
+{{#if sidebarWidgetData.allSeries}}
+<div class="series">
+  <div class="title h5 text-uppercase">series <div class="arrow"></div></div>
+  <div class="series-badges">
+    {{#each sidebarWidgetData.allSeries}}
+      <a href="{{this.url}}" class="tag">
+        <div class="series-badge badge">{{this.key}} <span>({{this.doc_count}})</span></div>
+      </a>
+    {{/each}}
+  </div>
+</div>
+{{/if}}
+
+<script type="text/javascript">
+ $(document).ready(function(){
+    $(".topics .title,.series .title").click(function(){
+        $(this).parent().toggleClass("closed");
+    });
+ });
+</script>

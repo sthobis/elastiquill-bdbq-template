@@ -1,31 +1,30 @@
-<article class="post">
-  <div class="post-img">
-    <a href="{{this.url}}"><img src="{{this.metadata.header_image_url}}" alt=""></a>
-  </div>
-  <div class="post-content">
-      <a href="{{this.url}}">
-        <h5 class="post-title">{{this.title}}<br></h5>
-      </a>
-      {{#if this.reading_time}}
-      <span class="read">{{this.reading_time}}</span>
-      {{/if}}
-      <div class="post-excerpt">{{{this.excerpt}}}</div>
-      <div class="post-badges">
-        {{# if this.series}}
-        <a href="{{this.series_url}}">
-          <div class="series-badge badge my-4">Series: {{this.series}}</div>
-        </a>
-        {{/if}}
-        {{#each tags}}
-          <a href="{{this.url}}">
-            <div class="tags-badge badge">{{this.key}}</div>
+<div class="col-md-4 pb-5 d-flex">
+  <div class="post-box card">
+    <a href="{{this.url}}"><img  class="post_thumbnail"  src="{{this.metadata.header_image_url}}" alt=""></a>
+    <div class="post-box__content p-3">
+        <div class="post-box__content-header">
+          <div class="duration-and-location text-muted mb-2">
+            <span class="duration" datetime="{{this.published_at}}"> {{this.published_at_str}}</span>
+            {{#if this.reading_time}}
+                <span class="read">{{this.reading_time}}</span>
+            {{/if}}
+          </div>
+          <a href="{{this.url}}" class="text-reset">
+            <div class="h4">{{this.title}}</div>
           </a>
-        {{/each}}
-      </div>
-      <div class="post-author__container d-flex justify-content-between">
-        <time class="post-date" datetime="{{this.published_at}}">
-          {{this.published_at_str}}
-        </time>
-      </div>
+        </div>
+        <div class="post-box__content-footer">
+            {{# if this.series}}
+            <a href="{{this.series_url}}">
+              <div class="series-badge badge">Series: {{this.series}}</div>
+            </a>
+            {{/if}}
+            {{#each tags}}
+              <a href="{{this.url}}">
+                <div class="tags-badge badge">{{this.key}}</div>
+              </a>
+            {{/each}}
+        </div>
+    </div>
   </div>
-</article>
+</div>

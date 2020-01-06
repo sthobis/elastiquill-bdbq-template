@@ -1,41 +1,38 @@
-<header class="container">
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="/">
-      <img src="/static/theme/horizontal-logo.svg" class="d-inline-block align-top" alt="" style="height: 36px;">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav w-100 justify-content-end">
-        <li class="nav-item mx-4" style="line-height: 34px;">
-          {{> search-widget}}
-        </li>
-        <li class="nav-item mx-4" style="line-height: 34px;">
-          <a href="/rss" target="_blank">
-            <i style="padding: 0rem 0.5rem" class="fas fa-rss"></i>
-          </a>
-        </li>
-	<li class="nav-item mx-4">
-	  <a class="nav-link" href="/about">About</a>
-	</li>
-        <li class="nav-item mx-4">
-          <a class="nav-link" href="/contact">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  {{#if (and posts.length (eq pageNum 1) (eq template "index"))}}
-    {{> fresh-post (head posts)}}
-  {{/if}}
-  {{#if (or (eq template "tagged") (eq template "series")) }}
-    <div class="blog-title my-5">
-      {{#if tagDescription}}
-        <h1><span>Blog /</span> {{tagDescription.title}}</h1>
-      {{else}}
-        <h1><span>Blog /</span> {{tag}}{{series}}</h1>
-      {{/if}}
-    </div>
-  {{/if}}
+<header class="container-fluid navbar-container pt-0 pb-3 bg-white fixed-top">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="/">
+        <img src="https://bigdataboutique.com/images/horizontal-logo.svg" class="d-inline-block align-top" alt="">
+        <span class="blogText">BLOG</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav w-100 justify-content-end">
+          <li class=" nav-item dropdown services-dropdown ml-5">
+            <a href="/services" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" title="BigData and Cloud services" href="/services">BigData and Cloud services</a>
+              <a class="dropdown-item" title="Elasticsearch" href="/services/elasticsearch">Elasticsearch Consultants</a>
+              <a class="dropdown-item" title="Presto" href="/services/presto">Presto Consultancy and Support</a>
+            </div>
+          </li>
+          <li class="nav-item  ml-5">
+            <a class="nav-link" href="/solutions">Solutions</a>
+          </li>
+          <li class="nav-item  ml-5">
+            <a class="nav-link" href="/training">Training <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item ml-5">
+            <a class="nav-link" href="/blog">Blog</a>
+          </li>
+          <li class="nav-item ml-5">
+            <a class="nav-link nav-bordered" href="/contact">Let’s Talk</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 </header>
+<div style="height: 100px">&nbsp;</div>
