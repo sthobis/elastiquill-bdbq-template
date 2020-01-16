@@ -1,0 +1,73 @@
+<script src="https://bigdataboutique.com/interactions.6bc17b2d156dabec97e4.js" async></script>
+
+<footer class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1 footer_logo">
+                <img src="//bigdataboutique.com/images/logo.png" alt="">
+            </div>
+            <div class="col-md-3 footer_about">
+                <h6>About</h6>
+                <p class="about-text">Take your business to the next level with our BigData experts. </p>
+            </div>
+            <div class="col-md-2 footer_website">
+                <h6>Website</h6>
+                <a href="/services">
+                    Services
+                </a>
+                <a href="/training">
+                    Training
+                </a>
+                <a href="/careers">
+                    Careers
+                </a>
+                <a href="/contact">
+                    Contact
+                </a>
+            </div>
+            <div class="col-md-4 footer_blogs">
+                <h6>Latest blogs</h6>
+                <div class="footer_blog-items">
+                    {{#with sidebarWidgetData.recentPosts.[0]}}
+                    <div class="footer_blog-item">
+                        <div class="footer_blog-item_img">
+                            <a href="{{this.url}}">
+                              <img src="{{this.metadata.header_image_url}}" alt="">
+                            </a>
+                        </div>
+                        <div class="footer_blog-item_text">
+                            <p class="text-muted footer_blog-item_date">{{this.published_at_str}}</p>
+                            <p><a href="{{this.url}}">
+                              {{this.title}}
+                            </a></p>
+                        </div>
+                    </div>
+                    {{/with}}
+                </div>
+            </div>
+            <div class="col-md-2 footer_follow_us">
+                <h6>Follow us</h6>
+
+                <div class="footer_icons">
+                    <a href="https://github.com/BigDataBoutique/" target="_blank">
+                        <i class="icon fab fa-github"></i>
+                    </a>
+                    <a href="https://www.facebook.com/bigdataboutique/" target="_blank">
+                        <i class="icon fab fa-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/bigdataboutique" target="_blank">
+                        <i class="icon fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/bigdata-boutique" target="_blank">
+                        <i class="icon fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCBHr7lM2u6SCWPJvcKug-Yg" target="_blank">
+                        <img class="icon youtube" src="//bigdataboutique.com/images/icons/icons-8-youtube.svg" alt="" style="height: 16px; vertical-align: text-bottom;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="height: 100px;"></div>
+</footer>
+

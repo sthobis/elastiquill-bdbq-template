@@ -1,71 +1,90 @@
-<main class="post-page">
-  <article class="container post-container">
-    <div class="row">
-      <div class="col-12">
-  {{#if post.metadata.header_image_url}}
-      <div class="post-image">
-          <img src="{{{post.metadata.header_image_url}}}" alt="">
-      </div>
-  {{/if}}
-        <h1 class="post-title">{{post.title}}</h1>
-        <div class="badge-cloud">
-          {{# if post.series}}
-          <a href="{{post.series_url}}">
-            <div class="series-badge badge my-4">Series: {{post.series}}</div>
-          </a>
-          {{/if}}
-          {{#each post.tags}}
-            <a href="{{this.url}}"><div class="tags-badge badge my-4">{{this.key}}</div></a>
-          {{/each}}          
-        </div>
-        <div class="post-author__container d-flex justify-content-between mt-4 mb-5">
-          <div class="post-author">{{post.reading_time}}</div>
+<main class="content">
+  <div class="fresh-post container card">
+    <div class="fresh-post__img col-md-6 px-0">
+      <img src="{{#if post.metadata.header_image_url}}{{{post.metadata.header_image_url}}}{{else}}/static/base/img/post1.jpg{{/if}}" alt="">
+    </div>
+    <div class="col-md-6 px-5 py-3 d-flex flex-column">
+        <div class="text-muted mb-2 d-flex justify-content-between">
           <time class="post-date" datetime="{{post.published_at}}">
             {{post.published_at_str}}
           </time>
+          {{#if post.reading_time}}
+            <span class="read">{{post.reading_time}}</span>
+          {{/if}}
         </div>
-        <div class="post-content my-3">
-          {{{post.content}}}
-        </div>
-      </div>
-    </article>
-    {{#if post.more_like_this}}
-    <div class="posts-widget__container col-12">
-      <h2 class="posts-widge__title">More stories you may also like</h2>
-      <div class="posts-widget">
-        {{#each post.more_like_this}}
-        <div class="card">
-          <a href="{{this.url}}"><img src="{{this.metadata.header_image_url}}" class="card-img-top" alt="..."></a>
-          <div class="card-body">
-            <a href="{{this.url}}">
-              <p class="card-text">{{this.title}}</p>
-            </a>
-            <time class="post-date" datetime="{{this.published_at}}">
-              {{this.published_at_str}}
-            </time>
+        <h1 class="flex-grow-1">{{post.title}}</h1>
+        <div class="post-author__container d-flex justify-content-between">
+          <div class="post-author">
+            <img src="{{post.author.avatar}}" alt="">
+            <span class="author-name">{{post.author.name}}</span>
           </div>
         </div>
-        {{/each}}
-      </div>
-    </div>
-    {{/if}}
-    <div class="comments-widget__container col-12" id="comments-container">
-      {{#if post.comments}}
-        <h2>Comments ({{post.comments.length}})</h2>
-      {{/if}}
-      {{#each post.comments}}
-        {{> comment this index=@index }}
-      {{/each}}
-
-      {{#if post.allow_comments}}
-        {{> comment-form}}
-      {{else}}
-        <h2>Comments are now closed</h2>
-      {{/if}}
     </div>
   </div>
-  
+  <div class="py-5 text-center">
+    <div class="d-inline-block pr-md-5 h5 m-0">
+      Our experts help you succeed in your BigData and Cloud projects
+    </div>
+    <a href="/contact" class="d-inline-block align-baseline btn btn-enroll-header py-3 px-5">LEARN MORE</a>
+  </div>
+  <article class="container" style="position: relative">
+    <div id="SocialLinks">
+      <!-- Generated using https://github.com/mxstbr/sharing -->
+      <!-- Sharingbutton Facebook -->
+      <a href="https://facebook.com/sharer/sharer.php?u={{encodeURI post.full_url}}" target="_blank" rel="noopener" aria-label="">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><style>.a{fill:#843aea;}</style></defs><path class="a" d="M16,0A16,16,0,1,0,32,16,16,16,0,0,0,16,0Zm4.736,9.413H18.5c-.789,0-.954.323-.954,1.141v1.973h3.19l-.307,3.464H17.546V26.338H13.413v-10.3H11.264V12.526h2.149V9.763c0-2.592,1.387-3.946,4.462-3.946h2.861v3.6Z"/></svg>
+      </a>
+
+      <!-- Sharingbutton Twitter -->
+      <a href="https://twitter.com/intent/tweet/?text={{encodeURI post.title}}&amp;url={{encodeURI post.full_url}}" target="_blank" rel="noopener" aria-label="">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><style>.a{fill:#843aea;}</style></defs><path class="a" d="M16,0A16,16,0,1,0,32,16,16,16,0,0,0,16,0Zm8.046,13.243A10.555,10.555,0,0,1,7.81,22.614,7.464,7.464,0,0,0,13.3,21.078,3.713,3.713,0,0,1,9.838,18.5a3.7,3.7,0,0,0,1.675-.064,3.713,3.713,0,0,1-2.976-3.685,3.7,3.7,0,0,0,1.68.464A3.715,3.715,0,0,1,9.07,10.261a10.528,10.528,0,0,0,7.648,3.878,3.713,3.713,0,0,1,6.323-3.386,7.426,7.426,0,0,0,2.357-.9,3.712,3.712,0,0,1-1.632,2.053,7.364,7.364,0,0,0,2.133-.584A7.53,7.53,0,0,1,24.046,13.243Z"/></svg>
+      </a>
+
+      <!-- Sharingbutton LinkedIn -->
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{encodeURI post.full_url}}&amp;title={{encodeURI post.title}}&amp;summary={{encodeURI post.title}}&amp;source={{encodeURI blogUrl}}" target="_blank" rel="noopener" aria-label="">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><style>.a{fill:#843aea;}.b{fill:#fff;stroke:#fff;fill-rule:evenodd;}</style></defs><g transform="translate(-1100 -2327)"><circle class="a" cx="16" cy="16" r="16" transform="translate(1100 2327)"/><path class="b" d="M168.387,727.3,164.693,731a2.082,2.082,0,0,1-2.012.534l4.967-4.967a1.045,1.045,0,0,0,0-1.477l-.739-.739a1.046,1.046,0,0,0-1.478,0l-4.966,4.967A2.081,2.081,0,0,1,161,727.3l3.694-3.694a2.089,2.089,0,0,1,2.955,0l.739.738A2.09,2.09,0,0,1,168.387,727.3Zm-5.726,2.04a.523.523,0,0,1,0,.739l-2.586,2.586a.523.523,0,0,1-.739-.739l2.586-2.586A.523.523,0,0,1,162.661,729.345Zm-8.311,7.565.738.739a1.045,1.045,0,0,0,1.478,0l4.967-4.967a2.082,2.082,0,0,1-.534,2.012l-3.694,3.694a2.089,2.089,0,0,1-2.955,0l-.739-.739a2.089,2.089,0,0,1,0-2.955L157.3,731a2.081,2.081,0,0,1,2.011-.534l-4.966,4.967A1.045,1.045,0,0,0,154.35,736.909Z" transform="translate(955.501 1612.501)"/></g></svg>
+      </a>
+    </div>
+    <div class="col-md-8 offset-md-2">
+      <div class="badge-cloud">
+        {{# if post.series}}
+        <a href="{{post.series_url}}">
+          <div class="series-badge badge">Series: {{post.series}}</div>
+        </a>
+        {{/if}}
+        {{#each post.tags}}
+          <a href="{{this.url}}"><div class="tags-badge badge">{{this.key}}</div></a>
+        {{/each}}
+      </div>
+      <div class="post-content my-3">
+        {{{post.content}}}
+      </div>
+      {{#if post.metadata.canonical_url}}
+      <hr/>
+      <p>
+        Originally published at <a href="{{post.metadata.canonical_url}}">{{post.metadata.canonical_url}}</a>.
+      </p>
+      {{/if}}
+    </div>
+    <div class="offset-md-2 col-md-4 mb-5">
+       <div class="author2 h5">
+        <img src="{{post.author.avatar}}"  alt="{{post.author.name}}"  >
+            {{post.author.name}}
+       </div>
+       <!-- <p>{{post.author.bio}}</p> -->
+    </div>
+  </article>
 </main>
+
+{{#if post.more_like_this}}
+<div class="container">
+  <div class="posts row">
+    {{#each post.more_like_this}}
+      {{> post this}}
+    {{/each}}
+  </div>
+</div>
+{{/if}}
 
 <script>
 $(function() {
