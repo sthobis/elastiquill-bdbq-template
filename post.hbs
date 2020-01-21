@@ -48,12 +48,10 @@
     <div class="col-md-8 offset-md-2">
       <div class="badge-cloud">
         {{# if post.series}}
-        <a href="{{post.series_url}}">
-          <div class="series-badge badge">Series: {{post.series}}</div>
-        </a>
+        <a href="{{post.series_url}}" class="tag"><div class="badge">Series: {{post.series}}</div></a>
         {{/if}}
         {{#each post.tags}}
-          <a href="{{this.url}}"><div class="tags-badge badge">{{this.key}}</div></a>
+          <a href="{{this.url}}" class="tag"><div class="badge">{{this.key}}</div></a>
         {{/each}}
       </div>
       <div class="post-content my-3">

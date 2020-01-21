@@ -1,22 +1,22 @@
 {{#if sidebarWidgetData.allTags}}
-<div class="topics">
-  <div class="title h5 mb-3 text-uppercase">Topics <div class="arrow"></div></div>
-  <div class="topics-badges">
+<div class="tag-list topics">
+  <div class="tag-list-title title h5 mb-3 text-uppercase">Topics <div class="arrow"></div></div>
+  <div class="tag-list-content">
     {{#each sidebarWidgetData.allTags}}
       <a href="{{this.url}}" class="tag">
-        <div class="tags-badge badge">{{this.key}} <span>({{this.doc_count}})</span></div>
+        <div class="badge">{{this.key}} <span>({{this.doc_count}})</span></div>
       </a>
     {{/each}}
   </div>
 </div>
 {{/if}}
 {{#if sidebarWidgetData.allSeries}}
-<div class="series">
-  <div class="title h5 mb-3 text-uppercase">series <div class="arrow"></div></div>
-  <div class="series-badges">
+<div class="tag-list series">
+  <div class="tag-list-title title h5 mb-3 text-uppercase">series <div class="arrow"></div></div>
+  <div class="tag-list-content">
     {{#each sidebarWidgetData.allSeries}}
       <a href="{{this.url}}" class="tag">
-        <div class="series-badge badge">{{this.key}} <span>({{this.doc_count}})</span></div>
+        <div class="badge">{{this.key}} <span>({{this.doc_count}})</span></div>
       </a>
     {{/each}}
   </div>
@@ -25,7 +25,7 @@
 
 <script type="text/javascript">
  $(document).ready(function(){
-    $(".topics .title,.series .title").click(function(){
+    $(".tag-list .title").click(function(){
         $(this).parent().toggleClass("closed");
     });
  });
