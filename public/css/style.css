@@ -424,8 +424,8 @@ main.post-page {
   padding-right: 0.3rem;
 }
 
-.post:hover,
-.fresh-post:hover {
+.post,
+.fresh-post {
   background-color: #ffffff;
   box-shadow: 0 45px 37px -20px rgba(0, 0, 0, 0.05);
 }
@@ -518,6 +518,12 @@ blockquote em {
 
 .post-box {
   overflow: hidden;
+}
+
+/* These are stylistically the same box */
+.tag-list,
+.post-box {
+  box-shadow: 0 10px 17px 5px rgba(0, 0, 0, 0.05);
 }
 
 .post-title {
@@ -909,8 +915,6 @@ blockquote em {
 }
 .tag-list {
   margin-top: 0 !important;
-}
-.tag-list {
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #e8e8e8;
   border-radius: 5px;
