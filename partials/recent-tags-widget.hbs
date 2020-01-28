@@ -4,7 +4,7 @@
   <div class="tag-list-content">
     {{#each sidebarWidgetData.allTags}}
       <a href="{{this.url}}" class="tag">
-        <div class="badge">{{this.key}} <span>({{this.doc_count}})</span></div>
+        {{this.key}} <span>({{this.doc_count}})</span>
       </a>
     {{/each}}
   </div>
@@ -16,7 +16,7 @@
   <div class="tag-list-content">
     {{#each sidebarWidgetData.allSeries}}
       <a href="{{this.url}}" class="tag">
-        <div class="badge">{{this.key}} <span>({{this.doc_count}})</span></div>
+        {{this.key}} <span>({{this.doc_count}})</span>
       </a>
     {{/each}}
   </div>

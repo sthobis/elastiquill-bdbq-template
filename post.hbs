@@ -13,19 +13,20 @@
           {{/if}}
         </div>
         <h1 class="flex-grow-1">{{post.title}}</h1>
-        <div class="post-author__container d-flex justify-content-between">
-          <div class="post-author">
-            <img src="{{post.author.avatar}}" alt="">
-            <span class="author-name">{{post.author.name}}</span>
+        <div class="my-3 d-flex justify-content-between">
+          <div class="badge-cloud">
+            {{# if post.series}}
+            <a href="{{post.series_url}}" class="tag tag-solid">Series: {{post.series}}</a>
+            {{/if}}
+            {{#each post.tags}}
+              <a href="{{this.url}}" class="tag tag-solid">{{this.key}}</a>
+            {{/each}}
           </div>
         </div>
     </div>
   </div>
-  <div class="py-5 text-center">
-    <div class="d-inline-block pr-md-5 h5 m-0">
-      Our experts help you succeed in your BigData and Cloud projects
-    </div>
-    <a href="/contact" class="d-inline-block align-baseline btn btn-enroll-header py-3 px-5">LEARN MORE</a>
+  <div class="container">
+    {{> bdbq-banner}}
   </div>
   <article class="container" style="position: relative">
     <div id="SocialLinks">
@@ -51,15 +52,8 @@
       </a>
     </div>
     <div class="col-md-8 offset-md-2">
-      <div class="badge-cloud">
-        {{# if post.series}}
-        <a href="{{post.series_url}}" class="tag"><div class="badge">Series: {{post.series}}</div></a>
-        {{/if}}
-        {{#each post.tags}}
-          <a href="{{this.url}}" class="tag"><div class="badge">{{this.key}}</div></a>
-        {{/each}}
-      </div>
       <div class="post-content my-3">
+        <p class="h5 mb-3">{{{post.excerpt}}}</p>
         {{{post.content}}}
       </div>
       {{#if post.metadata.canonical_url}}
