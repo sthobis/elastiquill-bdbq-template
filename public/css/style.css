@@ -79,15 +79,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   height: auto;
 }
 
-.tag-list-content a {
-  display: inline-block;
-  margin: 0 0 0.8rem;
-}
-
-.tag-list .badge {
-  margin: 0;
-}
-
 .fresh-title {
   color: #c31473;
   font-size: 1.4rem;
@@ -148,21 +139,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-size: 3rem;
 }
 
-.badge {
-  border-radius: 4px;
-  line-height: 1.71;
-  font-size: 1.4rem;
-  padding: 0 0.7rem;
-  margin: 0.3rem;
-}
-
-.post-badge {
-  background-color: #47bea4;
-  color: #ffffff;
-  margin-left: 1.7rem;
-  font-weight: 500;
-}
-
 p.header-text {
   font-size: 1.6rem;
   font-weight: normal;
@@ -171,13 +147,6 @@ p.header-text {
   line-height: 1.5;
   letter-spacing: normal;
   color: rgb(126, 119, 119);
-}
-
-.badge {
-  margin: 0.8rem 0;
-  color: #843aea;
-  font-weight: 500;
-  font-size: 16px;
 }
 
 .post-content .post-author__container {
@@ -421,11 +390,12 @@ main.post-page {
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
-  padding-right: 0.3rem;
+  padding: 0rem;
+  overflow: hidden;
 }
 
-.post:hover,
-.fresh-post:hover {
+.post,
+.fresh-post {
   background-color: #ffffff;
   box-shadow: 0 45px 37px -20px rgba(0, 0, 0, 0.05);
 }
@@ -520,17 +490,16 @@ blockquote em {
   overflow: hidden;
 }
 
+/* These are stylistically the same box */
+.tag-list,
+.post-box {
+  box-shadow: 0 10px 17px 5px rgba(0, 0, 0, 0.05);
+}
+
 .post-title {
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 400;
-}
-
-.btn-enroll-header {
-  color: #fff;
-  background: transparent linear-gradient(270deg, #efa52f 0%, #eb596b 100%) 0%
-    0% no-repeat padding-box;
-  border-radius: 5px;
 }
 
 /* media queries */
@@ -904,13 +873,25 @@ blockquote em {
 
 /* Custom */
 
+.bdbq-banner {
+  background-color: #f5eeff;
+}
+
+.bdbq-banner-button {
+  display: inline-block;
+  min-width: 25%;
+  color: #fff;
+  background: transparent linear-gradient(270deg, #efa52f 0%, #eb596b 100%) 0%
+    0% no-repeat padding-box;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
 .sidebar {
   margin-top: 0 !important;
 }
 .tag-list {
   margin-top: 0 !important;
-}
-.tag-list {
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #e8e8e8;
   border-radius: 5px;
@@ -930,9 +911,6 @@ blockquote em {
   background-position: center center;
   background-repeat: no-repeat;
   padding-left: 20px;
-  transition: -webkit-transform 200ms;
-  transition: transform 200ms;
-  transition: transform 200ms, -webkit-transform 200ms;
 }
 .tag-list.closed .arrow {
   -webkit-transform: rotate(-90deg);
@@ -940,7 +918,11 @@ blockquote em {
   transform: rotate(-90deg);
 }
 .tag-list.closed {
-  height: 53px;
+  box-sizing: content-box;
+  height: 1.25rem;
+}
+.tag-list.closed .tag-list-content {
+  display: none;
 }
 
 .tag {
@@ -949,8 +931,15 @@ blockquote em {
   border-radius: 25px;
   opacity: 1;
   padding: 0.5rem;
-  margin-right: 0.5rem;
-  transition: all 0.2s ease-in;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  transition: all 0.15s ease-in;
+  line-height: 1.71;
+  font-size: 1.4rem;
+  color: #843aea;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.375rem 0.875rem;
+  display: inline-block;
 }
 
 .tag span {
@@ -959,12 +948,15 @@ blockquote em {
 }
 
 .tag:hover {
+  /* Don't transition the "in" animation, so it feels snappy */
+  transition: none;
   background-color: #eadeff;
+  color: #843aea;
 }
 
-.tag-list .badge {
+.tag.tag-solid {
+  background: #f5eeff;
   color: #843aea;
-  font-weight: 500;
 }
 
 footer {
@@ -1036,9 +1028,42 @@ footer {
   margin-right: 1rem;
 }
 
+.fresh-post .fresh-post-box-social,
+.post-box .post-box-social {
+  position: absolute;
+  right: 0;
+}
+
+.fresh-post .fresh-post-box-social a,
+.post-box .post-box-social a {
+  opacity: 0;
+  transition: all 0.1s ease-in;
+  display: block;
+  padding: 0.25rem 0.5rem;
+}
+
+.fresh-post .fresh-post-box-social a:first-child,
+.post-box .post-box-social a:first-child {
+  padding-top: 0.5rem;
+}
+
+.fresh-post .fresh-post-box-social a:last-child,
+.post-box .post-box-social a:last-child {
+  padding-bottom: 0.5rem;
+}
+
+.fresh-post:hover .fresh-post-box-social a,
+.post-box:hover .post-box-social a {
+  opacity: 0.8;
+}
+
+.fresh-post .fresh-post-box-social a:hover,
+.post-box .post-box-social a:hover {
+  opacity: 1;
+}
+
 #SocialLinks {
   position: absolute;
-  left: 2rem;
 }
 #SocialLinks a {
   display: block;
