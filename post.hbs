@@ -83,6 +83,21 @@
 </div>
 {{/if}}
 
+<div class="comments-widget__container col-12" id="comments-container">
+  {{#if post.comments}}
+    <h2>Comments ({{post.comments.length}})</h2>
+  {{/if}}
+  {{#each post.comments}}
+    {{> comment this index=@index }}
+  {{/each}}
+
+  {{#if post.allow_comments}}
+    {{> comment-form}}
+  {{else}}
+    <h2>Comments are now closed</h2>
+  {{/if}}
+</div>
+
 <script>
 $(function() {
   $('.post-content').find('img').each(function() {

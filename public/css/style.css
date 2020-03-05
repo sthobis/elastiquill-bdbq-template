@@ -261,6 +261,29 @@ main.post-page {
 
 .comments-widget__container {
   margin-top: 6rem;
+  margin-bottom: 5rem;
+}
+
+.comments-widget__container h2 {
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.comments-widget__container .post-author {
+  margin-left: 0;
+}
+
+.comments-widget__container .post-author a {
+  text-decoration: none;
+}
+
+.comments-widget__container .post-author a:hover span {
+  text-decoration: underline;
+}
+
+.comments-widget__container .post-author img {
+  margin-right: 0;
 }
 
 .comments-widget__form {
@@ -271,8 +294,24 @@ main.post-page {
   margin: 3rem 0rem;
 }
 
+.comments-widget__form .form-control {
+  height: auto;
+  font-size: 1rem;
+  padding: 0.5rem 1.25rem;
+}
+
 .submit-comment {
-  border-radius: 6px;
+  color: #6c757d;
+  border-color: #6c757d;
+}
+
+.submit-comment:hover {
+  color: #fff;
+  background-color: #6c757d;
+}
+
+.btn.cancel-comment:hover {
+  color: #212529;
 }
 
 .posts-widget {
