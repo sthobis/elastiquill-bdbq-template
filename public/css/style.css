@@ -255,6 +255,16 @@ main.post-page {
   text-align: center;
 }
 
+.post-content hr {
+  width: 100%;
+}
+
+.post-content pre {
+  padding: 1rem;
+  background-color: #f6f8fa;
+  border-radius: 3px;
+}
+
 .posts-widget__container {
   margin-top: 4rem;
 }
