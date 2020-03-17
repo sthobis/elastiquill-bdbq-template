@@ -265,6 +265,16 @@ main.post-page {
   border-radius: 3px;
 }
 
+.post-content img {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.post-content img:hover {
+  cursor: zoom-in;
+  filter: brightness(0.9);
+}
+
 .posts-widget__container {
   margin-top: 4rem;
 }
