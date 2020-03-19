@@ -1,9 +1,9 @@
 $(function() {
   var stickyNav = function() {
     if ($(window).scrollTop()) {
-      $(".navbar-container").addClass("fixed-top");
+      $(".navbar-container").addClass("sticky-navbar");
     } else {
-      $(".navbar-container").removeClass("fixed-top");
+      $(".navbar-container").removeClass("sticky-navbar");
     }
   };
 

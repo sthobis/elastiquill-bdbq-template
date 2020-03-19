@@ -1,43 +1,134 @@
-<header class="container-fluid navbar-container">
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light px-0">
-      <a class="navbar-brand" href="/">
-        <img src="https://bigdataboutique.com/images/horizontal-logo.svg" class="d-inline-block align-top" alt="">
-        <span class="blogText">BLOG</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-end">
-          <li class="nav-item  ml-4">
-            <a class="nav-link" href="{{blogRoutePrefix}}/rss" target="_blank">
-              <i style="padding: 0rem 0.5rem" class="fas fa-rss"></i>
-            </a>
-          </li>
-          <li class=" nav-item dropdown services-dropdown ml-4">
-            <a href="https://bigdataboutique.com/services" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" title="BigData and Cloud services" href="https://bigdataboutique.com/services">BigData and Cloud services</a>
-              <a class="dropdown-item" title="Elasticsearch" href="https://bigdataboutique.com/services/elasticsearch">Elasticsearch Consultants</a>
-              <a class="dropdown-item" title="Presto" href="https://bigdataboutique.com/services/presto">Presto Consultancy and Support</a>
-            </div>
-          </li>
-          <li class="nav-item  ml-4">
-            <a class="nav-link" href="https://bigdataboutique.com/solutions">Solutions</a>
-          </li>
-          <li class="nav-item  ml-4">
-            <a class="nav-link" href="https://bigdataboutique.com/training">Training <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active ml-4">
-            <a class="nav-link" href="/">Blog</a>
-          </li>
-          <li class="nav-item ml-4">
-            <a class="nav-link nav-bordered" href="https://bigdataboutique.com/contact">Let’s Talk</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+<header>
+  <div class="container-fluid navbar-container">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/">
+          <img
+            src="//bigdataboutique.com/images/horizontal-logo.svg"
+            class="d-inline-block align-top"
+            alt="logo"
+          />
+          <span class="blog-text">BLOG</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav w-100 justify-content-end">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="{{ blogRoutePrefix }}/rss"
+                target="_blank"
+              >
+                <i class="fas fa-rss"></i>
+              </a>
+            </li>
+            <li class="nav-item dropdown services-dropdown">
+              <a
+                href="https://bigdataboutique.com/services"
+                class="nav-link dropdown-toggle"
+                id="navbarDropdownMenuLink"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Services</a
+              >
+              <div
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <section>
+                  <img
+                    src="//bigdataboutique.com/images/header-service-bigdata.svg"
+                    alt="Bigdata Services"
+                  />
+                  <a
+                    class="dropdown-item"
+                    title="BigData Services"
+                    href="https://bigdataboutique.com/services"
+                    >BigData Services</a
+                  >
+                </section>
+                <div class="dropdown-divider"></div>
+                <section>
+                  <img
+                    src="//bigdataboutique.com/images/header-service-elasticsearch.png"
+                    alt="Elasticsearch"
+                  />
+                  <h6 class="dropdown-header">Elasticsearch & Elastic Stack</h6>
+                  <a
+                    class="dropdown-item"
+                    title="Elasticsearch consultants"
+                    href="https://bigdataboutique.com/services/elasticsearch"
+                    >Consultants</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    title="Elasticsearch capacity planning"
+                    href="https://bigdataboutique.com/services/elasticsearch/capacity-planning"
+                    >Capacity planning</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    title="Elasticsearch production support"
+                    href="https://bigdataboutique.com/services/elasticsearch"
+                    >Production support</a
+                  >
+                </section>
+                <div class="dropdown-divider"></div>
+                <section>
+                  <img
+                    src="//bigdataboutique.com/images/header-service-presto.png"
+                    alt="Presto"
+                  />
+                  <h6 class="dropdown-header">Presto</h6>
+                  <a
+                    class="dropdown-item"
+                    title="Presto"
+                    href="https://bigdataboutique.com/services/presto"
+                    >Consultants</a
+                  >
+                  <a
+                    class="dropdown-item"
+                    title="Presto production support"
+                    href="https://bigdataboutique.com/services/presto"
+                    >Production support</a
+                  >
+                </section>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://bigdataboutique.com/solutions"
+                >Solutions</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://bigdataboutique.com/training"
+                >Training <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="button-small hover-disabled-link"
+                href="https://bigdataboutique.com/contact"
+                >Let’s Talk</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
   </div>
 </header>
-<div style="height: 155px">&nbsp;</div>
