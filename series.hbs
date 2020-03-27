@@ -1,21 +1,23 @@
-<div class="container">
-  <div class="pb-5">
-    <h2><span class="text-muted">Series: </span>{{series}}</h2>
-  </div>
-  <div class="row">
-    {{#if posts.length}}
-      {{#each posts}}
-        {{> post this}}
-      {{/each}}
-    {{else}}
-      {{> no-content}}
-    {{/if}}
-  </div>
-  <div class="btn-toolbar blog-pagination mb-5 justify-content-center">
-    {{#if prevPage}}<a class="btn btn-outline-secondary mr-2" href="{{blogRoutePrefix}}/series/{{series}}/page/{{prevPage}}">Previous page</a>{{/if}}
-    <div class="input-group align-content-center">
-      Page {{pageNum}} / {{totalPages}}
+<main class="content">
+  <div class="container">
+    <div class="pb-5">
+      <h2><span class="text-muted">Series: </span>{{series}}</h2>
     </div>
-    {{#if nextPage}}<a class="btn btn-outline-secondary ml-2" href="{{blogRoutePrefix}}/series/{{series}}/page/{{nextPage}}">Next page</a>{{/if}}
+    <div class="row">
+      {{#if posts.length}}
+        {{#each posts}}
+          {{> post this}}
+        {{/each}}
+      {{else}}
+        {{> no-content}}
+      {{/if}}
+    </div>
+    <div class="btn-toolbar blog-pagination mb-5 justify-content-center">
+      {{#if prevPage}}<a class="btn btn-outline-secondary mr-2" href="{{blogRoutePrefix}}/series/{{series}}/page/{{prevPage}}">Previous page</a>{{/if}}
+      <div class="input-group align-content-center">
+        Page {{pageNum}} / {{totalPages}}
+      </div>
+      {{#if nextPage}}<a class="btn btn-outline-secondary ml-2" href="{{blogRoutePrefix}}/series/{{series}}/page/{{nextPage}}">Next page</a>{{/if}}
+    </div>
   </div>
-</div>
+</main>
