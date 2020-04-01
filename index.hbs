@@ -1,40 +1,40 @@
 <main class="content">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-            {{#if (and posts.length (eq pageNum 1) (eq template "index"))}}
-              {{> fresh-post (head posts)}}
-            {{/if}}
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+          {{#if (and posts.length (eq pageNum 1) (eq template "index"))}}
+            {{> fresh-post (head posts)}}
+          {{/if}}
 
-            {{#if (or (eq template "tagged") (eq template "series")) }}
-              <div class="blog-title my-5">
-                {{#if tagDescription}}
-                  <h1><span>Blog /</span> {{tagDescription.title}}</h1>
-                {{else}}
-                  <h1><span>Blog /</span> {{tag}}{{series}}</h1>
-                {{/if}}
-              </div>
-            {{/if}}
-          </div>
-      </div>
-      {{> bdbq-banner}}
-      <div class="row">
-        <div class="col-md-4 mb-5">
-          <aside>
-            {{> sidebar}}
-          </aside>
+          {{#if (or (eq template "tagged") (eq template "series")) }}
+            <div class="blog-title my-5">
+              {{#if tagDescription}}
+                <h1><span>Blog /</span> {{tagDescription.title}}</h1>
+              {{else}}
+                <h1><span>Blog /</span> {{tag}}{{series}}</h1>
+              {{/if}}
+            </div>
+          {{/if}}
         </div>
-        {{#if posts.length}}
-          {{#each (tail posts)}}
-            {{> post this}}
-          {{/each}}
-        {{else}}
-          {{> no-content}}
-        {{/if}}
-      </div>
-      {{> event-banner }}
-      <div class="pb-5 text-right">
-        <a class="btn btn-outline-secondary" href="{{blogRoutePrefix}}/page/1">See more posts</a>
-      </div>
     </div>
+    {{> bdbq-banner}}
+    <div class="row">
+      <div class="col-md-4 mb-5">
+        <aside>
+          {{> sidebar}}
+        </aside>
+      </div>
+      {{#if posts.length}}
+        {{#each (tail posts)}}
+          {{> post this}}
+        {{/each}}
+      {{else}}
+        {{> no-content}}
+      {{/if}}
+    </div>
+    {{> event-banner }}
+    <div class="pb-5 text-right">
+      <a class="btn btn-outline-secondary" href="{{blogRoutePrefix}}/page/1">See more posts</a>
+    </div>
+  </div>
 </main>
