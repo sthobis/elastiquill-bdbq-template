@@ -1,5 +1,6 @@
+<div {{#if inline}}class="tag-list-inline"{{/if}}>
 {{#if sidebarWidgetData.allTags}}
-<div class="tag-list topics">
+<div class="tag-list topics{{#if inline}} closed{{/if}}">
   <div class="tag-list-title title h5 mb-3 text-uppercase">Topics <div class="arrow"></div></div>
   <div class="tag-list-content">
     {{#each sidebarWidgetData.allTags}}
@@ -11,7 +12,7 @@
 </div>
 {{/if}}
 {{#if sidebarWidgetData.allSeries}}
-<div class="tag-list series">
+<div class="tag-list series{{#if inline}} closed{{/if}}">
   <div class="tag-list-title title h5 mb-3 text-uppercase">series <div class="arrow"></div></div>
   <div class="tag-list-content">
     {{#each sidebarWidgetData.allSeries}}
@@ -22,6 +23,7 @@
   </div>
 </div>
 {{/if}}
+</div>
 
 <script type="text/javascript">
  $(document).ready(function(){

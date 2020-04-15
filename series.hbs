@@ -4,12 +4,32 @@
       <h2><span class="text-muted">Series: </span>{{series}}</h2>
     </div>
     <div class="row">
-      {{#if posts.length}}
-        {{#each posts}}
-          {{> post this}}
-        {{/each}}
+      {{#if tagDescription}}
+        <div class="col-lg-4">
+          <div class="header-text">
+            {{{tagDescription.content}}}
+            <button class="show-more">show more..</button>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="row">
+            {{#if posts.length}}
+              {{#each posts}}
+                {{> post this}}
+              {{/each}}
+            {{else}}
+              {{> no-content}}
+            {{/if}}
+          </div>
+        </div>
       {{else}}
-        {{> no-content}}
+        {{#if posts.length}}
+          {{#each posts}}
+            {{> post this col="4"}}
+          {{/each}}
+        {{else}}
+          {{> no-content}}
+        {{/if}}
       {{/if}}
     </div>
     <div class="btn-toolbar blog-pagination mb-5 justify-content-center">
@@ -21,3 +41,14 @@
     </div>
   </div>
 </main>
+
+<script type="text/javascript">
+ $(document).ready(function(){
+   if ($(".header-text").height() > 550) {
+     $(".header-text").addClass("overflow-hidden");
+     $(".show-more").click(function() {
+       $(".header-text").removeClass("overflow-hidden");
+     });
+   }
+ });
+</script>
