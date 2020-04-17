@@ -24,17 +24,13 @@
           {{> sidebar}}
         </aside>
       </div>
-      <div class="col-md-8">
-        <div class="row">
-          {{#if posts.length}}
-            {{#each (tail posts)}}
-              {{> post this}}
-            {{/each}}
-          {{else}}
-            {{> no-content}}
-          {{/if}}
-        </div>
-      </div>
+      {{#if posts.length}}
+        {{#each (tail posts)}}
+          {{> post this}}
+        {{/each}}
+      {{else}}
+        {{> no-content}}
+      {{/if}}
     </div>
     {{> event-banner }}
     <div class="pb-5 text-right">

@@ -15,7 +15,7 @@
           <div class="row">
             {{#if posts.length}}
               {{#each posts}}
-                {{> post this}}
+                {{> post this col="6"}}
               {{/each}}
             {{else}}
               {{> no-content}}
@@ -25,7 +25,7 @@
       {{else}}
         {{#if posts.length}}
           {{#each posts}}
-            {{> post this col="4"}}
+            {{> post this}}
           {{/each}}
         {{else}}
           {{> no-content}}
