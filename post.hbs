@@ -73,16 +73,6 @@
   </article>
 </main>
 
-{{#if post.more_like_this}}
-<div class="container">
-  <div class="posts row">
-    {{#each post.more_like_this}}
-      {{> post this}}
-    {{/each}}
-  </div>
-</div>
-{{/if}}
-
 <div class="comments-widget__container col-12" id="comments-container">
   {{#if post.comments}}
     <h2>Comments ({{post.comments.length}})</h2>
@@ -97,6 +87,17 @@
     <h2>Comments are now closed</h2>
   {{/if}}
 </div>
+
+
+{{#if post.more_like_this}}
+<div class="container">
+  <div class="posts row">
+    {{#each post.more_like_this}}
+      {{> post this}}
+    {{/each}}
+  </div>
+</div>
+{{/if}}
 
 <script>
 $(function() {
