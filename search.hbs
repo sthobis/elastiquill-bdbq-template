@@ -1,0 +1,39 @@
+<main class="content">
+  <div class="container">
+    <div class="mb-5">
+      <h2>
+        {{#if searchQuery}}
+          <span class="text-muted">Showing search results for </span>"{{searchQuery}}"
+        {{else}}
+          Showing all posts
+        {{/if}}
+      </h2>
+      <div class="mt-4">
+        {{> search-widget}}
+      </div>
+    </div>
+    <div class="row">
+      {{#if posts.length}}
+        {{#each posts}}
+          {{> post this}}
+        {{/each}}
+      {{else}}
+        <div class="col-sm-12 mb-5">
+          <h5>No results found.</h5>
+          <p>
+            We couldnt find any matches for "{{searchQuery}}". Try another keyword.<br/>
+          </p>
+        </div>
+      {{/if}}
+    </div>
+    {{#if totalPages}}
+      <div class="btn-toolbar blog-pagination mb-5 justify-content-center">
+        {{#if prevPage}}<a class="btn btn-outline-secondary mr-2" href="{{blogRoutePrefix}}/tagged/{{tag}}/page/{{prevPage}}">Previous page</a>{{/if}}
+        <div class="input-group align-content-center">
+          Page {{pageNum}} / {{totalPages}}
+        </div>
+        {{#if nextPage}}<a class="btn btn-outline-secondary ml-2" href="{{blogRoutePrefix}}/tagged/{{tag}}/page/{{nextPage}}">Next page</a>{{/if}}
+      </div>
+    {{/if}}
+  </div>
+</main>
