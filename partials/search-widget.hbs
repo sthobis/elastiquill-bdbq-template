@@ -1,0 +1,19 @@
+<form id="search-bar" action="{{blogRoutePrefix}}/search" method="GET">
+  <input
+    type="search"
+    name="q"
+    placeholder="Search.."
+    {{#if searchQuery}}
+      value="{{searchQuery}}"
+    {{/if}}
+  >
+  <button type="button"><i class="fas fa-search"></i></button>
+</form>
+
+<script type="text/javascript">
+$(function() {
+	$("#search-bar>button").click(function() {
+		$("#search-bar>input").focus();
+	});
+});
+</script>

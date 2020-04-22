@@ -1,35 +1,20 @@
 <main class="content">
   <div class="container">
-    <div class="pb-4">
+    <div class="mb-4">
       <h2><span class="text-muted">Posts tagged with: </span>{{tag}}</h2>
     </div>
+    {{#if tagDescription}}
+      <div class="header-text">
+        {{{tagDescription.content}}}
+      </div>
+    {{/if}}
     <div class="row">
-      {{#if tagDescription}}
-        <div class="col-lg-4">
-          <div class="header-text">
-            {{{tagDescription.content}}}
-            <button class="show-more">show more..</button>
-          </div>
-        </div>
-        <div class="col-lg-8">
-          <div class="row">
-            {{#if posts.length}}
-              {{#each posts}}
-                {{> post this col="6"}}
-              {{/each}}
-            {{else}}
-              {{> no-content}}
-            {{/if}}
-          </div>
-        </div>
+      {{#if posts.length}}
+        {{#each posts}}
+          {{> post this}}
+        {{/each}}
       {{else}}
-        {{#if posts.length}}
-          {{#each posts}}
-            {{> post this}}
-          {{/each}}
-        {{else}}
-          {{> no-content}}
-        {{/if}}
+        {{> no-content}}
       {{/if}}
     </div>
     <div class="btn-toolbar blog-pagination mb-5 justify-content-center">
@@ -41,14 +26,3 @@
     </div>
   </div>
 </main>
-
-<script type="text/javascript">
- $(document).ready(function(){
-   if ($(".header-text").height() > 550) {
-     $(".header-text").addClass("overflow-hidden");
-     $(".show-more").click(function() {
-       $(".header-text").removeClass("overflow-hidden");
-     });
-   }
- });
-</script>
