@@ -322,11 +322,6 @@ main,
   line-height: 1.5;
   letter-spacing: normal;
   margin-bottom: 50px;
-  padding: 16px;
-  -webkit-box-shadow: 0 10px 17px 5px rgba(0, 0, 0, 0.05);
-  box-shadow: 0 10px 17px 5px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
 }
 
 .header-text *:last-child {
