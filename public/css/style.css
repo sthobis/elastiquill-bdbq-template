@@ -125,6 +125,10 @@ main,
   border-radius: 2.5px;
 }
 
+.navbar .navbar-toggler .navbar-toggler-icon {
+  background: url("/static/theme/img/menu.svg");
+}
+
 .navbar .dropdown-menu {
   border: 1px solid #e4e9e8;
   border-radius: 4px;
@@ -629,8 +633,25 @@ main.post-page {
   background: white;
 }
 
-.post_thumbnail {
-  max-height: 200px;
+.post-thumbnail {
+  position: relative;
+}
+
+.post-thumbnail::before {
+  content: "";
+  display: block;
+  width: 100%;
+  padding-top: 55%;
+}
+
+.post-thumbnail img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -o-object-fit: cover;
 }
 
 /* series */
@@ -758,6 +779,7 @@ blockquote em {
   } */
 
 .post-box {
+  width: 100%;
   overflow: hidden;
 }
 
