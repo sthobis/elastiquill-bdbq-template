@@ -20,7 +20,7 @@
     <a href="{{this.url}}"><img  class="post_thumbnail"  src="{{this.metadata.header_image_url}}" alt=""></a>
     <div class="post-box__content p-3">
         <div class="post-box__content-header">
-          <div class="duration-and-location text-muted mb-2">
+          <div class="duration-and-location text-muted mb-2 d-flex justify-content-between">
             <span class="duration" datetime="{{this.published_at}}"> {{this.published_at_str}}</span>
             {{#if this.reading_time}}
                 <span class="read">{{this.reading_time}}</span>
@@ -32,7 +32,7 @@
         </div>
         <div class="post-box__content-footer">
             {{# if this.series}}
-            <a class="tag tag-solid my-2" href="{{this.series_url}}">
+            <a class="serie serie-solid my-2" href="{{this.series_url}}">
               Series: {{this.series}}
             </a>
             {{/if}}
