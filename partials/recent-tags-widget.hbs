@@ -1,7 +1,7 @@
 <div {{#if inline}}class="tag-list-inline"{{/if}}>
 {{#if sidebarWidgetData.allTags}}
 <div class="tag-list topics{{#if inline}} closed{{/if}}">
-  <div class="tag-list-title title h5 mb-3 text-uppercase">Topics <div class="arrow"></div></div>
+  <div class="tag-list-title title h5 mb-3 text-uppercase"><span>Topics</span> <div class="arrow"></div></div>
   <div class="tag-list-content">
     {{#each sidebarWidgetData.allTags}}
       <a href="{{this.url}}" class="tag">
@@ -13,10 +13,10 @@
 {{/if}}
 {{#if sidebarWidgetData.allSeries}}
 <div class="tag-list series{{#if inline}} closed{{/if}}">
-  <div class="tag-list-title title h5 mb-3 text-uppercase">series <div class="arrow"></div></div>
+  <div class="tag-list-title title h5 mb-3 text-uppercase"><span>series</span> <div class="arrow"></div></div>
   <div class="tag-list-content">
     {{#each sidebarWidgetData.allSeries}}
-      <a href="{{this.url}}" class="tag">
+      <a href="{{this.url}}" class="serie">
         {{this.key}} <span>({{this.doc_count}})</span>
       </a>
     {{/each}}
