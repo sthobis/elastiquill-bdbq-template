@@ -1,0 +1,10 @@
+<div class="col-sm-12 mb-5">
+  <h5>No results found.</h5>
+  {{#if searchQuery}}
+    <p>
+      We couldnt find any matches for "{{searchQuery}}". Try another keyword.<br/>
+    </p>
+  {{else}}
+    <p><a href={{blogRoutePrefix}}>Go back.</a></p>
+  {{/if}}
+</div>
