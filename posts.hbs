@@ -1,7 +1,7 @@
 <main class="content">
   <div class="container">
     <div class="pb-5">
-      <h2>All Posts</h2>
+      <h2>All Posts {{#if year}}from {{#if month}}{{month}}/{{/if}}{{year}}{{/if}}</h2>
     </div>
     <div class="row">
       {{#if posts.length}}
@@ -13,12 +13,8 @@
       {{/if}}
     </div>
     {{> sidebar inline=true}}
-    <div class="btn-toolbar blog-pagination my-5 justify-content-center">
-      {{#if prevPage}}<a class="btn btn-outline-secondary mr-2" href="{{blogRoutePrefix}}/page/{{prevPage}}">Previous page</a>{{/if}}
-      <div class="input-group align-content-center">
-        Page {{pageNum}} / {{totalPages}}
-      </div>
-      {{#if nextPage}}<a class="btn btn-outline-secondary ml-2" href="{{blogRoutePrefix}}/page/{{nextPage}}">Next page</a>{{/if}}
-    </div>
+    {{#if totalPages}}
+      {{> pagination}}
+    {{/if}}
   </div>
 </main>

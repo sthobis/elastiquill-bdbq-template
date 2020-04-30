@@ -1,0 +1,7 @@
+<div class="btn-toolbar blog-pagination my-5 justify-content-center">
+  {{#if prevPage}}<a class="btn btn-outline-secondary mr-2" href="{{blogRoutePrefix}}{{pathPrefix}}/page/{{prevPage}}">Previous page</a>{{/if}}
+  <div class="input-group align-content-center">
+    Page {{pageNum}} / {{totalPages}}
+  </div>
+  {{#if nextPage}}<a class="btn btn-outline-secondary ml-2" href="{{blogRoutePrefix}}{{pathPrefix}}/page/{{nextPage}}">Next page</a>{{/if}}
+</div>
