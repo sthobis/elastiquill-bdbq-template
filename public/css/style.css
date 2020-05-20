@@ -453,8 +453,24 @@ main.post-page {
 }
 
 .post-content pre {
+  position: relative;
+}
+
+.post-content pre::before {
+  content: attr(data-language);
+  position: absolute;
+  top: 0;
+  right: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #6b6b6b;
+  border-radius: 3px;
+  padding: 2px;
+}
+
+.post-content pre code {
   padding: 1rem;
-  background-color: #f6f8fa;
   border-radius: 3px;
 }
 
