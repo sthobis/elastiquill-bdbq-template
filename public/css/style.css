@@ -1507,7 +1507,10 @@ footer {
 .fresh-post .fresh-post-box-social,
 .post-box .post-box-social {
   position: absolute;
-  right: 0;
+  top: 5px;
+  right: 5px;
+  border-radius: 4px;
+  transition: background 0.1s ease-in;
 }
 
 .fresh-post .fresh-post-box-social a,
@@ -1535,6 +1538,11 @@ footer {
   opacity: 0.8;
 }
 
+.fresh-post:hover .fresh-post-box-social,
+.post-box:hover .post-box-social {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
 .fresh-post .fresh-post-box-social a:hover,
 .post-box .post-box-social a:hover {
   opacity: 1;
@@ -1546,6 +1554,13 @@ footer {
 #SocialLinks a {
   display: block;
   padding: 9px 0;
+}
+#SocialLinks .a {
+  fill: #a7a7a7;
+  transition: 0.3s;
+}
+#SocialLinks a:hover .a {
+  fill: #3e3e3e;
 }
 
 @media (max-width: 769px) {
@@ -1701,6 +1716,10 @@ footer {
     justify-content: center;
   }
 
+  .navbar .navbar-nav .nav-item {
+    margin-left: 15px;
+  }
+
   .navbar .navbar-nav .button-small {
     margin-top: 0;
   }
@@ -1800,5 +1819,11 @@ footer {
 
   .footer-icons a {
     margin-right: 35px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navbar .navbar-nav .nav-item {
+    margin-left: 30px;
   }
 }
