@@ -355,8 +355,10 @@ main,
   order: 3;
 }
 
-.post-content ul {
-  padding-left: 4rem;
+.post-content ul,
+.post-content ol {
+  padding-left: 40px;
+  margin-bottom: 1rem;
 }
 
 span.author-name {
@@ -490,6 +492,25 @@ main.post-page {
   cursor: zoom-in;
   -webkit-filter: brightness(0.9);
   filter: brightness(0.9);
+}
+
+.post-content table {
+  margin: 1rem 0;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.post-content table td {
+  vertical-align: middle;
+  border: 1px solid #d3dae6;
+  font-weight: inherit;
+  text-align: inherit;
+  padding: 2px 8px;
+}
+
+.post-content table tr:first-of-type td {
+  font-weight: 600;
+  background-color: #f5f7fa;
 }
 
 .posts-widget__container {
