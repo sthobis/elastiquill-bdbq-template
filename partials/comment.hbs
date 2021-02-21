@@ -1,0 +1,28 @@
+<div class="comment" data-id="{{id}}" data-index={{index}} id="{{comment_id}}">
+  <div class="post-author__container d-flex justify-content-between">
+    <div class="post-author">
+        {{#if author.website}}<a href="{{author.website}}" rel="nofollow" target="_blank">{{/if}}
+        <img src="{{author.avatar}}" alt="{{author.name}}">
+        <span class="ml-3">{{author.name}}</span>
+        {{#if author.website}}</a>{{/if}}
+    </div>
+    <time class="post-date" datetime="{{published_at}}">
+      {{published_at_str}}
+    </time>
+  </div>
+  <div class="comments-widget__content my-3">{{{content}}}</div>
+  <div class="comments-widget__footer">
+    {{#if allow_comments}}
+    <a class="reply btn-add-comment" onclick="onClickReply(this)">
+      <img src="/static/base/img/comment.png" alt=""><span class="secondary">Reply</span>
+    </a>
+    {{/if}}
+  </div>
+  {{#if replies}}
+  <div class="replies-container">
+    {{#each replies}}
+        {{> comment this index=@index }}
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
