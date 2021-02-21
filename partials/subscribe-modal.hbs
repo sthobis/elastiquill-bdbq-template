@@ -1,0 +1,78 @@
+<div
+  class="modal fade subscribe-modal"
+  id="subscribeModal"
+  tabindex="-1"
+  role="dialog"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form
+          id="subscribeForm"
+          class="subscribe-form needs-validation"
+          action="/contact"
+          method="post"
+        >
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="fa fa-times"></span>
+          </button>
+          <h4>Subscribe to Monthly Newsletter</h4>
+          <p>Keep up-to-date with important changes in big data technologies; discover new features and tools for your business.</p>
+          <div class="form-group">
+            <input
+              id="input-name"
+              type="text"
+              class="form-control{{#if feedback.name_error}} is-invalid{{/if}}"
+              name="name"
+              placeholder="Name*"
+              value="{{ feedback.name }}"
+              aria-label="Name (required)"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              id="input-email"
+              type="email"
+              class="form-control{{#if feedback.email_error}} is-invalid{{/if}}"
+              name="email"
+              placeholder="Email*"
+              value="{{ feedback.email }}"
+              aria-label="Email (required)"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="invalidCheck"
+                name="newsletter"
+                required
+                checked
+              />
+              <label class="form-check-label" for="invalidCheck">
+                Yes, I would like to receive monthly updates on big data technologies
+              </label>
+            </div>
+          </div>
+          <input
+            id="input-subject"
+            name="subject"
+            type="hidden"
+            value="Newsletter subscription"
+          />
+          <input
+            id="input-content"
+            name="content"
+            type="hidden"
+            value="Newsletter subscription from blog post {{post.title}}"
+          />
+          <button type="submit" class="submit-button">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

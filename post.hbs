@@ -1,9 +1,9 @@
 <main class="content">
   <div class="fresh-post container card">
-    <div class="fresh-post__img col-md-6 px-0">
+    <div class="fresh-post__img col-lg-6 px-0">
       <img src="{{#if post.metadata.header_image_url}}{{{post.metadata.header_image_url}}}{{else}}/static/base/img/post1.jpg{{/if}}" alt="">
     </div>
-    <div class="col-md-6 px-5 py-3 d-flex flex-column">
+    <div class="col-lg-6 px-4 px-lg-5 py-3 d-flex flex-column">
         <div class="text-muted mb-2 d-flex justify-content-between">
           <time class="post-date" datetime="{{post.published_at}}">
             {{post.published_at_str}}
@@ -17,74 +17,85 @@
           <img src="{{post.author.avatar}}"  alt="{{post.author.name}}"  >
           Written by {{post.author.name}}
         </div>
-        <div class="my-3 d-flex justify-content-between">
-          <div class="badge-cloud">
-            {{# if post.series}}
-            <a href="{{post.series_url}}" class="serie serie-solid">Series: {{post.series}}</a>
-            {{/if}}
-            {{#each post.tags}}
-              <a href="{{this.url}}" class="tag tag-solid">{{this.key}}</a>
-            {{/each}}
-          </div>
+        <div class="d-flex justify-content-between">
+          <div class="badge-cloud">{{# if post.series}}<a href="{{post.series_url}}" class="serie serie-solid">Series: {{post.series}}</a>{{/if}}{{#each post.tags}}<a href="{{this.url}}" class="tag tag-solid">{{this.key}}</a>{{/each}}</div>
         </div>
     </div>
   </div>
-  <div class="container">
-    {{> bdbq-banner}}
-  </div>
-  <article class="container" style="position: relative">
-    <div id="SocialLinks">
-      <!-- Generated using https://github.com/mxstbr/sharing -->
-      <!-- Sharingbutton Facebook -->
-      <a href="https://facebook.com/sharer/sharer.php?u={{encodeURI post.full_url}}" target="_blank" rel="noopener" aria-label="">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><style>.a{fill:#843aea;}</style></defs><path class="a" d="M16,0A16,16,0,1,0,32,16,16,16,0,0,0,16,0Zm4.736,9.413H18.5c-.789,0-.954.323-.954,1.141v1.973h3.19l-.307,3.464H17.546V26.338H13.413v-10.3H11.264V12.526h2.149V9.763c0-2.592,1.387-3.946,4.462-3.946h2.861v3.6Z"/></svg>
-      </a>
-
-      <!-- Sharingbutton Twitter -->
-      <a href="https://twitter.com/intent/tweet/?text={{encodeURI post.title}}&amp;url={{encodeURI post.full_url}}" target="_blank" rel="noopener" aria-label="">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><style>.a{fill:#843aea;}</style></defs><path class="a" d="M16,0A16,16,0,1,0,32,16,16,16,0,0,0,16,0Zm8.046,13.243A10.555,10.555,0,0,1,7.81,22.614,7.464,7.464,0,0,0,13.3,21.078,3.713,3.713,0,0,1,9.838,18.5a3.7,3.7,0,0,0,1.675-.064,3.713,3.713,0,0,1-2.976-3.685,3.7,3.7,0,0,0,1.68.464A3.715,3.715,0,0,1,9.07,10.261a10.528,10.528,0,0,0,7.648,3.878,3.713,3.713,0,0,1,6.323-3.386,7.426,7.426,0,0,0,2.357-.9,3.712,3.712,0,0,1-1.632,2.053,7.364,7.364,0,0,0,2.133-.584A7.53,7.53,0,0,1,24.046,13.243Z"/></svg>
-      </a>
-
-      <!-- Sharingbutton LinkedIn -->
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{encodeURI post.full_url}}&amp;title={{encodeURI post.title}}&amp;summary={{encodeURI post.title}}&amp;source={{encodeURI blogUrl}}" target="_blank" rel="noopener" aria-label="">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><style>.a{fill:#843aea;}</style><path class="a" d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/></svg>
-      </a>
-
-      <!-- Sharingbutton Copy URL -->
-      <a href="javascript:void(0)" onclick="copyText('{{post.full_url}}')" aria-label="">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><style>.a{fill:#843aea;}.b{fill:#fff;stroke:#fff;fill-rule:evenodd;}</style></defs><g transform="translate(-1100 -2327)"><circle class="a" cx="16" cy="16" r="16" transform="translate(1100 2327)"/><path class="b" d="M168.387,727.3,164.693,731a2.082,2.082,0,0,1-2.012.534l4.967-4.967a1.045,1.045,0,0,0,0-1.477l-.739-.739a1.046,1.046,0,0,0-1.478,0l-4.966,4.967A2.081,2.081,0,0,1,161,727.3l3.694-3.694a2.089,2.089,0,0,1,2.955,0l.739.738A2.09,2.09,0,0,1,168.387,727.3Zm-5.726,2.04a.523.523,0,0,1,0,.739l-2.586,2.586a.523.523,0,0,1-.739-.739l2.586-2.586A.523.523,0,0,1,162.661,729.345Zm-8.311,7.565.738.739a1.045,1.045,0,0,0,1.478,0l4.967-4.967a2.082,2.082,0,0,1-.534,2.012l-3.694,3.694a2.089,2.089,0,0,1-2.955,0l-.739-.739a2.089,2.089,0,0,1,0-2.955L157.3,731a2.081,2.081,0,0,1,2.011-.534l-4.966,4.967A1.045,1.045,0,0,0,154.35,736.909Z" transform="translate(955.501 1612.501)"/></g></svg>
-      </a>
-    </div>
-    <div class="col-md-8 offset-md-2">
-      <div class="post-content my-3">
-        <p class="h5 mb-3" style="font-style: italic;font-weight: 500;">{{{post.excerpt}}}</p>
-        {{{post.content}}}
+  <article class="container mt-5">
+    <div class="row">
+      <div class="col-lg-8 col-xl-9">
+        <div class="post-content">
+          <p class="mb-3 excerpt">{{{post.excerpt}}}</p>
+          {{{post.content}}}
+        </div>
+        {{#if post.metadata.canonical_url}}
+        <hr/>
+        <p class="canonicalUrl">
+          Originally published at <a href="{{post.metadata.canonical_url}}">{{post.metadata.canonical_url}}</a>.
+        </p>
+        {{/if}}
+        {{#if post.tags}}
+          <a class="horizontal-banner" href="https://bigdataboutique.com/banners/redirect/{{#each post.tags}}{{this.key}},{{/each}}" target="_blank" rel="noopener noreferrer">
+            <img src="https://bigdataboutique.com/banners/blog/{{#each post.tags}}{{this.key}},{{/each}}?size=760x154" alt="{{#each post.tags}}{{this.key}},{{/each}}" />
+          </a>
+        {{/if}}
       </div>
-      {{#if post.metadata.canonical_url}}
-      <hr/>
-      <p>
-        Originally published at <a href="{{post.metadata.canonical_url}}">{{post.metadata.canonical_url}}</a>.
-      </p>
-      {{/if}}
+      <div class="col-lg-4 col-xl-3">   
+        <div id="SocialLinks">
+          <span>Share</span>
+          <!-- Generated using https://github.com/mxstbr/sharing -->
+          <a href="https://facebook.com/sharer/sharer.php?u={{encodeURI post.full_url}}" target="_blank" rel="noopener" aria-label="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><style>.a{fill:#843aea;}</style></defs><path class="a" d="M16,0A16,16,0,1,0,32,16,16,16,0,0,0,16,0Zm4.736,9.413H18.5c-.789,0-.954.323-.954,1.141v1.973h3.19l-.307,3.464H17.546V26.338H13.413v-10.3H11.264V12.526h2.149V9.763c0-2.592,1.387-3.946,4.462-3.946h2.861v3.6Z"/></svg>
+          </a>
+          <a href="https://twitter.com/intent/tweet/?text={{encodeURI post.title}}&amp;url={{encodeURI post.full_url}}" target="_blank" rel="noopener" aria-label="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><style>.a{fill:#843aea;}</style></defs><path class="a" d="M16,0A16,16,0,1,0,32,16,16,16,0,0,0,16,0Zm8.046,13.243A10.555,10.555,0,0,1,7.81,22.614,7.464,7.464,0,0,0,13.3,21.078,3.713,3.713,0,0,1,9.838,18.5a3.7,3.7,0,0,0,1.675-.064,3.713,3.713,0,0,1-2.976-3.685,3.7,3.7,0,0,0,1.68.464A3.715,3.715,0,0,1,9.07,10.261a10.528,10.528,0,0,0,7.648,3.878,3.713,3.713,0,0,1,6.323-3.386,7.426,7.426,0,0,0,2.357-.9,3.712,3.712,0,0,1-1.632,2.053,7.364,7.364,0,0,0,2.133-.584A7.53,7.53,0,0,1,24.046,13.243Z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{encodeURI post.full_url}}&amp;title={{encodeURI post.title}}&amp;summary={{encodeURI post.title}}&amp;source={{encodeURI blogUrl}}" target="_blank" rel="noopener" aria-label="">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><style>.a{fill:#843aea;}</style><path class="a" d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/></svg>
+          </a>
+          <a href="javascript:void(0)" onclick="copyText('{{post.full_url}}')" aria-label="">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><defs><style>.a{fill:#843aea;}.b{fill:#fff;stroke:#fff;fill-rule:evenodd;}</style></defs><g transform="translate(-1100 -2327)"><circle class="a" cx="16" cy="16" r="16" transform="translate(1100 2327)"/><path class="b" d="M168.387,727.3,164.693,731a2.082,2.082,0,0,1-2.012.534l4.967-4.967a1.045,1.045,0,0,0,0-1.477l-.739-.739a1.046,1.046,0,0,0-1.478,0l-4.966,4.967A2.081,2.081,0,0,1,161,727.3l3.694-3.694a2.089,2.089,0,0,1,2.955,0l.739.738A2.09,2.09,0,0,1,168.387,727.3Zm-5.726,2.04a.523.523,0,0,1,0,.739l-2.586,2.586a.523.523,0,0,1-.739-.739l2.586-2.586A.523.523,0,0,1,162.661,729.345Zm-8.311,7.565.738.739a1.045,1.045,0,0,0,1.478,0l4.967-4.967a2.082,2.082,0,0,1-.534,2.012l-3.694,3.694a2.089,2.089,0,0,1-2.955,0l-.739-.739a2.089,2.089,0,0,1,0-2.955L157.3,731a2.081,2.081,0,0,1,2.011-.534l-4.966,4.967A1.045,1.045,0,0,0,154.35,736.909Z" transform="translate(955.501 1612.501)"/></g></svg>
+          </a>
+        </div>
+        <div class="subscribe">
+          <button type="button" class="btn subscribe-button" data-toggle="modal" data-target="#subscribeModal">Subscribe to Newsletter</button>
+          <a
+            class="btn rss-button"
+            href="{{ blogRoutePrefix }}/rss"
+            target="_blank"
+          >
+            <i class="fas fa-rss"></i>
+          </a>
+        </div>
+        {{#if post.tags}}
+          <a class="vertical-banner" href="https://bigdataboutique.com/banners/redirect/{{#each post.tags}}{{this.key}},{{/each}}" target="_blank" rel="noopener noreferrer">
+            <img src="https://bigdataboutique.com/banners/blog/{{#each post.tags}}{{this.key}},{{/each}}?size=300x600" alt="{{#each post.tags}}{{this.key}},{{/each}}" />
+          </a>
+        {{/if}}
+      </div>
     </div>
   </article>
 </main>
 
-<div class="comments-widget__container col-12" id="comments-container">
-  {{#if post.comments}}
-    <h2>Comments ({{post.comments.length}})</h2>
-  {{/if}}
-  {{#each post.comments}}
-    {{> comment this index=@index }}
-  {{/each}}
+<div class="container">
+  <div class="row">
+    <div class="comments-widget__container col-lg-8 col-xl-9" id="comments-container">
+      {{#if post.comments}}
+        <h2>Comments ({{post.comments.length}})</h2>
+      {{/if}}
+      {{#each post.comments}}
+        {{> comment this index=@index }}
+      {{/each}}
 
-  {{#if post.allow_comments}}
-    {{> comment-form}}
-  {{else}}
-    <h2>Comments are now closed</h2>
-  {{/if}}
+      {{#if post.allow_comments}}
+        {{> comment-form}}
+      {{else}}
+        <h2>Comments are now closed</h2>
+      {{/if}}
+    </div>
+  </div>
 </div>
-
 
 {{#if post.more_like_this}}
 <div class="container">
@@ -95,6 +106,8 @@
   </div>
 </div>
 {{/if}}
+
+{{> subscribe-modal}}
 
 <script>
 $(function() {
