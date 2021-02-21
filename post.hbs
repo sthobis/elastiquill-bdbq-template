@@ -15,7 +15,7 @@
         <h1 class="flex-grow-1">{{post.title}}</h1>
         <div class="author2">
           <img src="{{post.author.avatar}}"  alt="{{post.author.name}}"  >
-          Written by {{post.author.name}}
+          {{post.author.name}}
         </div>
         <div class="d-flex justify-content-between">
           <div class="badge-cloud">{{# if post.series}}<a href="{{post.series_url}}" class="serie serie-solid">Series: {{post.series}}</a>{{/if}}{{#each post.tags}}<a href="{{this.url}}" class="tag tag-solid">{{this.key}}</a>{{/each}}</div>
