@@ -1,4 +1,4 @@
-<article class="fresh-post container card">
+<article class="fresh-post container">
   <div class="fresh-post__img col-lg-6 px-0">
     <a href="{{this.url}}"><img src="{{#if this.metadata.header_image_url}}{{{this.metadata.header_image_url}}}{{else}}/static/base/img/post1.jpg{{/if}}" alt=""></a>
     <div class="fresh-post-box-social d-none d-md-block">
@@ -19,7 +19,7 @@
       </a>
     </div>
   </div>
-  <div class="col-lg-6 px-5 py-3">
+  <div class="col-lg-6 px-5 py-5">
       <div class="text-muted mb-2 d-flex justify-content-between">
         <time class="post-date" datetime="{{this.published_at}}">
           {{this.published_at_str}}
@@ -43,6 +43,6 @@
           </a>
         {{/each}}
       </div>
-      <div>{{{this.excerpt}}}</div>
+      <div class="fresh-post__excerpt">{{{this.excerpt}}}</div>
   </div>
 </article>
