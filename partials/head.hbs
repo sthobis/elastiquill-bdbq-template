@@ -29,9 +29,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {{#if canonicalUrl}}
     <link rel="canonical" href="{{canonicalUrl}}" />
 {{/if}}
-{{#unless isLocalhost}}
-    <meta http-equiv="Content-Security-Policy" content="default-src https: 'unsafe-inline'">
-{{/unless}}
+<meta http-equiv="Content-Security-Policy" content="default-src {{#if isLocalhost}}http:{{else}}https:{{/if}} 'unsafe-inline';connect-src wss: {{#if isLocalhost}}http:{{else}}https:{{/if}}">
 {{#each og}}
     {{#if this.content}}
         <meta property="{{this.property}}" content="{{this.content}}" />
