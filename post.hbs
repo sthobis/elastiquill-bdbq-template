@@ -24,25 +24,27 @@
   </div>
   <article class="container mt-5">
     <div class="row">
-      <div class="col-lg-8 col-xl-9">
-        <div class="post-content">
+      <div class="d-flex flex-column align-items-stretch col-lg-8 col-xl-9">
+        <div class="post-content order-2 order-lg-1">
           <p class="mb-3 excerpt">{{{post.excerpt}}}</p>
           {{{post.content}}}
         </div>
         {{#if post.metadata.canonical_url}}
-        <hr/>
-        <p class="canonicalUrl">
-          Originally published at <a href="{{post.metadata.canonical_url}}">{{post.metadata.canonical_url}}</a>.
-        </p>
+        <div class="order-3 order-lg-2">
+          <hr/>
+          <p class="canonicalUrl">
+            Originally published at <a href="{{post.metadata.canonical_url}}">{{post.metadata.canonical_url}}</a>.
+          </p>
+        </div>
         {{/if}}
-        {{#if post.tags}}
-          <a class="horizontal-banner" href="https://bigdataboutique.com/banners/redirect/{{#each post.tags}}{{this.key}},{{/each}}" target="_blank" rel="noopener noreferrer">
-            <img src="https://bigdataboutique.com/banners/blog/{{#each post.tags}}{{this.key}},{{/each}}?size=760x154" alt="{{#each post.tags}}{{this.key}},{{/each}}" />
+        {{#if metaKeywords}}
+          <a class="horizontal-banner mb-5 mb-lg-0 mt-lg-5 order-1 order-lg-3" href="https://bigdataboutique.com/banners/redirect/{{toLowerCase metaKeywords}}" target="_blank" rel="noopener noreferrer">
+            <img src="https://bigdataboutique.com/banners/blog/{{toLowerCase metaKeywords}}?size=760x154" alt="{{toLowerCase metaKeywords}}" />
           </a>
         {{/if}}
       </div>
       <div class="col-lg-4 col-xl-3">   
-        <div id="SocialLinks">
+        <div id="SocialLinks" class="mt-4 mt-md-0">
           <span>Share</span>
           <!-- Generated using https://github.com/mxstbr/sharing -->
           <a href="https://facebook.com/sharer/sharer.php?u={{encodeURI post.full_url}}" target="_blank" rel="noopener" aria-label="">
@@ -68,9 +70,10 @@
             <i class="fas fa-rss"></i>
           </a>
         </div>
-        {{#if post.tags}}
-          <a class="vertical-banner" href="https://bigdataboutique.com/banners/redirect/{{#each post.tags}}{{this.key}},{{/each}}" target="_blank" rel="noopener noreferrer">
-            <img src="https://bigdataboutique.com/banners/blog/{{#each post.tags}}{{this.key}},{{/each}}?size=300x600" alt="{{#each post.tags}}{{this.key}},{{/each}}" />
+        {{#if metaKeywords}}
+          <a class="vertical-banner" href="https://bigdataboutique.com/banners/redirect/{{toLowerCase metaKeywords}}" target="_blank" rel="noopener noreferrer">
+            <img class="d-block d-lg-none" src="https://bigdataboutique.com/banners/blog/{{toLowerCase metaKeywords}}?size=300x300" alt="{{toLowerCase metaKeywords}}" />
+            <img class="d-none d-lg-block" src="https://bigdataboutique.com/banners/blog/{{toLowerCase metaKeywords}}?size=300x600" alt="{{toLowerCase metaKeywords}}" />
           </a>
         {{/if}}
       </div>
