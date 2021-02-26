@@ -1,30 +1,32 @@
 <main class="content">
-  <div class="fresh-post container">
-    <div class="fresh-post__img col-lg-6 px-0">
-      <img src="{{#if post.metadata.header_image_url}}{{{post.metadata.header_image_url}}}{{else}}/static/base/img/post1.jpg{{/if}}" alt="">
-    </div>
-    <div class="col-lg-6 px-4 px-lg-5 py-3 d-flex flex-column">
-        <div class="text-muted mb-2 d-flex justify-content-between">
-          <time class="post-date" datetime="{{post.published_at}}">
-            {{post.published_at_str}}
-          </time>
-          {{#if post.reading_time}}
-            <span class="reading-time">{{post.reading_time}}</span>
-          {{/if}}
-        </div>
-        <h1 class="flex-grow-1">{{post.title}}</h1>
-        <div class="author2 text-muted">
-          <img src="{{post.author.avatar}}"  alt="{{post.author.name}}"  >
-          {{post.author.name}}
-        </div>
-        <div class="d-flex justify-content-between">
-          <div class="badge-cloud">{{# if post.series}}<a href="{{post.series_url}}" class="serie serie-solid">Series: {{post.series}}</a>{{/if}}{{#each post.tags}}<a href="{{this.url}}" class="tag tag-solid">{{this.key}}</a>{{/each}}</div>
-        </div>
+  <div class="container">
+    <div class="fresh-post">
+      <div class="fresh-post__img col-lg-6 px-0">
+        <img src="{{#if post.metadata.header_image_url}}{{{post.metadata.header_image_url}}}{{else}}/static/base/img/post1.jpg{{/if}}" alt="">
+      </div>
+      <div class="col-lg-6 px-4 px-lg-5 py-3 d-flex flex-column">
+          <div class="text-muted mb-2 d-flex justify-content-between">
+            <time class="post-date" datetime="{{post.published_at}}">
+              {{post.published_at_str}}
+            </time>
+            {{#if post.reading_time}}
+              <span class="reading-time">{{post.reading_time}}</span>
+            {{/if}}
+          </div>
+          <h1 class="flex-grow-1">{{post.title}}</h1>
+          <div class="author2 text-muted">
+            <img src="{{post.author.avatar}}"  alt="{{post.author.name}}"  >
+            {{post.author.name}}
+          </div>
+          <div class="d-flex justify-content-between">
+            <div class="badge-cloud">{{# if post.series}}<a href="{{post.series_url}}" class="serie serie-solid">Series: {{post.series}}</a>{{/if}}{{#each post.tags}}<a href="{{this.url}}" class="tag tag-solid">{{this.key}}</a>{{/each}}</div>
+          </div>
+      </div>
     </div>
   </div>
   <article class="container mt-5">
-    <div class="row">
-      <div class="d-flex flex-column align-items-stretch col-lg-8 col-xl-9">
+    <div class="post-row">
+      <div class="d-flex flex-column align-items-stretch post-row-content">
         <div class="post-content order-2 order-lg-1">
           <p class="mb-3 excerpt">{{{post.excerpt}}}</p>
           {{{post.content}}}
@@ -43,7 +45,7 @@
           </a>
         {{/if}}
       </div>
-      <div class="col-lg-4 col-xl-3">   
+      <div class="post-row-sidebar">   
         <div id="SocialLinks" class="mt-4 mt-md-0">
           <span>Share</span>
           <!-- Generated using https://github.com/mxstbr/sharing -->
