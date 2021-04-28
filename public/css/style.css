@@ -94,6 +94,7 @@ main,
   font-size: 16px;
   line-height: 1.75;
   letter-spacing: 0.5px;
+  padding: 5px;
   color: var(--color-nav-link);
 }
 
@@ -1470,12 +1471,11 @@ footer {
 
 @media (min-width: 992px) {
   :root {
-    --header-height: 170px;
     --footer-height: 147px;
   }
 
   .navbar-container {
-    padding: 53px 0;
+    padding: 15px 0;
   }
 
   .navbar .navbar-nav {
